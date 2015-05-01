@@ -5,11 +5,11 @@ var windowRef;
 
 
 var init = function() {
-
     var handleMessage = function(event) {
         console.log("Received Msg: " + event.origin + " " + event.data);
         if(event.data === 'success') {
             console.log("Child Window URL:" + windowRef.location.href);
+            $('#result').text("Successful Login");
             windowRef.close();
         }
     };
@@ -27,7 +27,7 @@ var init = function() {
 
     $('#btn-fblogin').click(function() {
         var that = this;
-        var result = $('#result')
+        var result = $('#result');
         result.text("login clicked, opening a login window");
         var strWindowFeatures = "menubar=no,location=no,resizable=no,scrollbars=yes,status=yes";
         windowRef = window.open('/auth/facebook', 'fb_loginwindow', strWindowFeatures);

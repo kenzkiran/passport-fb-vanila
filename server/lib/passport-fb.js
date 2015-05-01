@@ -16,6 +16,8 @@ var init = function() {
         },
         function(accessToken, refreshToken, profile, done) {
             console.log("profile: " + JSON.stringify(profile));
+            console.log("accessToken:" + accessToken);
+            console.log("refreshToken:" + refreshToken);
             return User.login(profile, {accessToken: accessToken, refreshToken: refreshToken}, done);
         }
     ));
